@@ -1,0 +1,24 @@
+import string
+n = input()
+letter_count = {}
+with open("D:\The Old Man and the Sea.txt",'r') as file:
+    line_count = 0
+    
+    for line in file:
+        if line_count>=n:
+            break
+        for ch in line.lower():
+            if ch.isalpha():
+                letter_count[ch]=letter_count.get(ch,0)+1
+        line_count+=1
+
+    for ch in string.ascii_lowercase:
+        if ch not in letter_count:
+            letter_count[ch]=0
+
+sorted_ocunt = sorted(letter_count.items(),key = lambda x :-x[1],x[0])
+for k,v in sorted_count:
+    print(f'{k}的数量是{v:>3}')
+
+      
+      
